@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>My first blog</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+      <div class="page-header">
+        <ul class="nav navbar-nav">
+                <li class=""><h1><a href="/">Welcome to my First Blog</a></h1></li>
+                    <form method="POST" action="/">
+                      {% csrf_token %}
+                      {% if user.is_authenticated %}
+                          <li class=""><a href="{% url 'post_new' %}" class="top-menu"><span class="btn btn-info">Add Post</span></a></li>
+                      {% endif %}
+                      <div class="form-group">
+                          <li class=""><input type="text" placeholder="Search by Title" class="form-control" name="search"></li>
+                          <li class=""><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button></li>
+                      </div>
+                    </form>
+          </ul>
+      </div>
+      <div class="content container">
+          <div class="row">
+              <div class="col-md-8">
+              {% block content %}
+              {% endblock %}
+              </div>
+          </div>
+      </div>
+  </body>
+</html>
