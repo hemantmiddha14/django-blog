@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^post/new/$', views.post_new, name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
     url(r'^post/(?P<pk>\d+)/del/$', views.post_del, name='post_del'),
+    url(r'^register/$', account:views.register, name='register'),
 
 ]
