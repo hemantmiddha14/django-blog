@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>My first blog</title>
+        <meta charset="utf-8">
 
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -20,10 +21,11 @@
                       <div class="form-group">
                           <li class=""><input type="text" placeholder="Search by Title" class="form-control" name="search"></li>
                           <li class=""><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button></li>
-                          <li class=""><a href="{% url 'account/register' %}" class="btn">Register</a></li>
 
                       </div>
                     </form>
+                     <li class=""><a href="{% url 'register' %}"><span class="btn btn-info">Register</span></a></li>
+
           </ul>
       </div>
       <div class="content container">

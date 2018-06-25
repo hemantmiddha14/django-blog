@@ -1,0 +1,47 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><h2>Log In</h2></div>
+            {% if error_message %}
+                <p><strong>{{ error_message }}</strong></p>
+            {% endif %}
+        <div class="panel-body">
+            <form action="{% url 'account:login_user' %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-2">
+                    <b>Username: </b> 
+                    </div>
+                    <input type="text" class="col-md-8">
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                    <b>Password: </b> 
+                    </div>
+                    <input type="password" class="col-md-8">
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                        <label><input type="checkbox" name="remember"> Remember me</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">        
+                  <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-info">Submit</button>
+                  </div>
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer">
+            Don't have an account? <a href="{% url 'account:register' %}">Click here</a> to register.
+        </div>
+    </div>
+{% endblock %}
+

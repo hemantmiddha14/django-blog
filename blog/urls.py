@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from account import views as account_view
 
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
@@ -7,6 +8,6 @@ urlpatterns = [
     url(r'^post/new/$', views.post_new, name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
     url(r'^post/(?P<pk>\d+)/del/$', views.post_del, name='post_del'),
-    url(r'^register/$', account:views.register, name='register'),
+    url(r'^register/$', account_view.register, name='register'),
 
 ]
