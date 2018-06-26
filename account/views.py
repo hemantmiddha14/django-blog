@@ -6,11 +6,20 @@ from blog.models import Post
 
 def login_user(request):
     if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        # print("usermname________________________")
+        # print(username)
+        password = request.POST.get('password')
+        # print("password++++++++++++++++++++++++++")
+        # print(password)
         user = authenticate(username=username, password=password)
+        # print("user+++++++++++++++++++++++++")
+        # print(user)
         if user is not None :
+            # print("in if +++++++++++++++++++++++++++++")
             login(request, user)
+            # print("authenticated+++++++++++++++++++++++")
+            print(request.user.is_authenticated())
             return redirect("post_list")
             # posts = Post.objects.filter(user=request.user)
             # return render(request, 'blog/post_list.html', {'posts': posts})
@@ -21,8 +30,9 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     form = UserForm(request.POST or None)
-    return render(request, 'account/login.html', {'form': form})
-
+    # return render(request, 'account/login.html', {'form': form})
+    messages.success(request, 'You have been successfully logged out')
+    return redirect('/')
 
 def register(request):
     form = UserForm(request.POST or None)

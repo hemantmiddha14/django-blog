@@ -12,6 +12,7 @@
     <body>
       <div class="page-header">
         <ul class="nav navbar-nav">
+                {{ message }}
                 <li class=""><h1><a href="/">Welcome to my First Blog</a></h1></li>
                     <form method="POST" action="/">
                       {% csrf_token %}
@@ -24,7 +25,12 @@
 
                       </div>
                     </form>
+                    {% if user.is_anonymous %}
                      <li class=""><a href="{% url 'register' %}"><span class="btn btn-info">Register</span></a></li>
+                    {% else %}
+                    
+                     <li class=""><a href="{% url 'account:logout_user' %}"><span class="btn btn-info">Logout</span>&nbsp;</a></li>
+                    {% endif %}
 
           </ul>
       </div>
