@@ -30,9 +30,8 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     form = UserForm(request.POST or None)
-    # return render(request, 'account/login.html', {'form': form})
     messages.success(request, 'You have been successfully logged out')
-    return redirect('/')
+    return render(request, 'account/login.html', {'form': form})
 
 def register(request):
     form = UserForm(request.POST or None)
