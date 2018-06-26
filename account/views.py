@@ -19,7 +19,7 @@ def login_user(request):
             # print("in if +++++++++++++++++++++++++++++")
             login(request, user)
             # print("authenticated+++++++++++++++++++++++")
-            print(request.user.is_authenticated())
+            #print(request.user.is_authenticated())
             return redirect("post_list")
             # posts = Post.objects.filter(user=request.user)
             # return render(request, 'blog/post_list.html', {'posts': posts})
