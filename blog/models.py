@@ -16,3 +16,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Images(models.Model):
+    post = models.ForeignKey(Post)
+    image = models.ImageField(upload_to='postphotos/', blank=True, null=True)
+
+    def __str__(self):
+        return self.post.title
+

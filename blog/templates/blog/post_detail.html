@@ -12,6 +12,7 @@
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+         <p>{{ Images.image|linebreaksbr }}</p>
         {% if request.user == post.author %}
         <a class="btn btn-default" href="{% url 'post_del' pk=post.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
         {% endif %}
