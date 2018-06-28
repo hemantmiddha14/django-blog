@@ -69,7 +69,7 @@ def search(request):
             status = Post.objects.filter(title__icontains=post_name)
     else:
          status = Post.objects.all()
-         # messages.error(request, "No matching Results")
+         messages.error(request, "No matching Results")
 
 
     return render(request, 'blog/post_list.html', {'post': status})

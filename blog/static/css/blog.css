@@ -24,6 +24,7 @@
   width: 100%;
 }
 
+
 .content {
     margin-left: 40px;
 }
@@ -47,14 +48,24 @@ h1, h2 {
 .btn{
   font-size: 20px;
 }
+.xyz{
+  margin-bottom: -4px;
+}
 
+.abc, .abc:hover{
+    float: right;
+    color: #ffffff;
+    font-size: 26pt;
+    margin-top: -13px;
+    margin-right: 5px;
+}
 
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #ffffff;
     float: right;
     font-size: 26pt;
-    margin-right: 20px;
-    margin-top: 25px;
+    margin-right: 5px;
+    margin-top: -53px;
 }
 
 .post {
@@ -71,3 +82,5 @@ hr{
 body{
   background-color: #f3f3f3;
 }
+
+
