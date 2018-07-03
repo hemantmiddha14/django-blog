@@ -20,8 +20,7 @@ class Post(models.Model):
 
 class Images(models.Model):
     post = models.ForeignKey(Post)
-    image = models.ImageField(upload_to='postphotos/', blank=True, null=True)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return self.post.title
-

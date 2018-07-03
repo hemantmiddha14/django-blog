@@ -84,3 +84,12 @@ body{
 }
 
 
+.gallery{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.gallery .img-thumbnail{
+  height: 200px;
+  width: 350px;
+}
