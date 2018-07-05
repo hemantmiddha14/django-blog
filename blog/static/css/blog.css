@@ -59,13 +59,18 @@ h1, h2 {
     margin-right: 5px;
 }
 
+.xyz{
+  float: left;
+  
+}
+
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #ffffff;
     float: right;
     font-size: 26pt;
     margin-right: 5px;
     margin-top: -53px;
-    padding: 
+    padding:
     }
 
 .post {
