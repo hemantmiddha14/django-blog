@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
 from django.contrib import messages
 from blog.models import Post
+from Profile.models import Profile
 
 def login_user(request):
     if request.method == "POST":
@@ -36,11 +37,12 @@ def logout_user(request):
 def register(request):
     form = UserForm(request.POST or None)
     if form.is_valid():
-        user = form.save(commit=False)
+        new_user = form.save(commit=False)
         username = form.cleaned_data['username']
         password = form.cleaned_data['password']
-        user.set_password(password)
-        user.save()
+        new_user.set_password(password)
+        new_user.save()
+        Profile.objects.create(user=new_user)
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)

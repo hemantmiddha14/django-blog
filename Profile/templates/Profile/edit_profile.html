@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% block content%}
+	<h2>Edit Profile</h2>
+	<form action="" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Save Changes" class="btn btn-info">
+	</form>
+
+	<a href="{% url 'account:logout_user' %}" class="top-menu"><span class="btn btn-info">Logout</span></a></li>
+{% endblock %}
