@@ -24,9 +24,9 @@ def login_user(request):
             return redirect("post_list")
             # posts = Post.objects.filter(user=request.user)
             # return render(request, 'blog/post_list.html', {'posts': posts})
-        else: 
+        else:
             return render(request, 'account/login.html', {'error_message': '*Username or Password is incorrect'})
-    return render(request, 'account/login.html')       
+    return render(request, 'account/login.html')
 
 def logout_user(request):
     logout(request)
@@ -46,8 +46,5 @@ def register(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/')
+            return redirect("post_list")
     return render(request, 'account/register.html', {'form': form})
-
-
-

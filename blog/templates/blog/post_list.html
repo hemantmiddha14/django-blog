@@ -3,9 +3,7 @@
 {% block content %}
   {% for post in posts %}
     <div class="post">
-      <div class="date">
-        <p>published: {{ post.published_date }}</p>
-      </div>
+
       {% if messages %}
       <ul class="messages">
         {% for message in messages %}
@@ -14,6 +12,9 @@
       </ul>
       {% endif %}
       <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+			<div class="date" style="float: right;">
+        <p>published: {{ post.published_date }}</p>
+      </div>
       <p> Click to know {{post.title}}</p>
       <hr>
     </div>

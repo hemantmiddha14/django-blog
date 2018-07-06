@@ -2,24 +2,24 @@
 
 {% block content %}
 
+<ul class="messages">
+	{% for message in messages %}
+	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% endfor %}
+</ul>
     <div class="panel panel-default">
         <div class="panel-heading"><h2>Log In</h2></div>
-            {% if error_message %}
-                <p><strong>{{ error_message }}</strong></p>
-            {% endif %}
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
+				{% if error_message %}
+				<p><strong>{{ error_message }}</strong></p>
+				{% endif %}
+				{% if messages %}
             {% endif %}
         <div class="panel-body">
             <form action="{% url 'account:login_user' %}" method="post">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-2">
-                    <b>Username: </b> 
+                    <b>Username: </b>
                     </div>
                     <input name="username" type="text" class="col-md-8">
 
@@ -27,7 +27,7 @@
                 <br>
                 <div class="row">
                     <div class="col-md-2">
-                    <b>Password: </b> 
+                    <b>Password: </b>
                     </div>
                     <input name="password" type="password" class="col-md-8">
                 </div>
@@ -39,9 +39,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">        
+                <div class="form-group">
                   <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn btn-info">Submit</button>
+                   <button class="btn" type="submit"><span class="abc">Login</span></button>
                   </div>
                 </div>
             </form>
@@ -51,4 +51,3 @@
         </div>
     </div>
 {% endblock %}
-

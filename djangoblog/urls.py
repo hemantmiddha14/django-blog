@@ -8,5 +8,8 @@ urlpatterns = [
     url(r'', include('blog.urls')),
     url(r'', include('account.urls')),
     url(r'', include('Profile.urls')),
-
 ]
+
+if settings.DEBUG:
+	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,22 +1,22 @@
 .page-header {
-    background-color: #428bca;
     margin-top: 0;
     display: inline-grid;
     width: 100%;
 }
 
+.navbar-brand, h2{
+	margin-top: 0px;
+}
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
-    padding-left: 20px;
+.nav{
+	margin-top: 7px;
 }
 .form-group{
   float: right;
   display: inline-flex;
   width: 20%;
-  margin-top: 29px;
+	margin-top: 17px;
+	margin-bottom: 14px;
 }
 .form-cotrol{
   width: 100%;
@@ -46,32 +46,20 @@ h1, h2 {
 .btn{
   font-size: 20px;
   float: right;
-}
-.xyz{
-  margin-bottom: -4px;
+	background-color: currentColor;
 }
 
-.abc, .abc:hover{
-    float: right;
-    color: #ffffff;
-    font-size: 26pt;
-    margin-top: -13px;
-    margin-right: 5px;
+.btn:hover{
+	background-color: black;
 }
 
-.xyz{
-  float: left;
-  
+.glyphicon{
+	color: white;
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
-    float: right;
-    font-size: 26pt;
-    margin-right: 5px;
-    margin-top: -53px;
-    padding:
-    }
+.abc{
+	color: white;
+}
 
 .post {
     margin-bottom: 70px;
@@ -97,4 +85,14 @@ body{
 .gallery .img-thumbnail{
   height: 200px;
   width: 350px;
+}
+
+
+@media (min-width: 768px)
+{
+	.form-inline .form-group {
+		display: inline-flex;
+		margin-bottom: 14px;
+		vertical-align: middle;
+	}
 }
