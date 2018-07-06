@@ -73,9 +73,12 @@ hr{
 }
 
 body{
-  background-color: #f3f3f3;
+	background-image: url("images/FoVknZ.jpg");
+	height: 100%;
+	/* background-color: #f3f3f3; */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 
 .gallery{
   margin-top: 20px;
@@ -93,6 +96,15 @@ body{
 	.form-inline .form-group {
 		display: inline-flex;
 		margin-bottom: 14px;
+		vertical-align: middle;
+		width: auto;
+	}
+}
+@media (max-width: 768px)
+{
+.form-group {
+		display: inline-flex;
+		width: 100%;
 		vertical-align: middle;
 	}
 }

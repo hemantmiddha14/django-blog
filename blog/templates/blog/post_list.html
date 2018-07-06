@@ -15,7 +15,7 @@
 			<div class="date" style="float: right;">
         <p>published: {{ post.published_date }}</p>
       </div>
-      <p> Click to know {{post.title}}</p>
+			<p> {{ post.text|slice:":120"}}....</p>
       <hr>
     </div>
   {% endfor %}
