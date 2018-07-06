@@ -14,6 +14,8 @@ def post_list(request):
             posts = posts.filter(title__icontains=query)
         else:
             messages.error(request, "No matching Results")
+
+
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 

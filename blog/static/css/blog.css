@@ -52,12 +52,20 @@ h1, h2 {
 .btn:hover{
 	background-color: black;
 }
-
+.abc{
+	background-color: red;
+}
+.xyz:hover{
+	background-color: #003869;
+}
+.abc:hover{
+	background-color: maroon;
+}
 .glyphicon{
 	color: white;
 }
 
-.abc{
+.pqr{
 	color: white;
 }
 

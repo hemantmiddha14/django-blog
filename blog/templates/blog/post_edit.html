@@ -5,10 +5,13 @@
     <form method="POST" class="post-form" enctype="multipart/form-data">
     	{% csrf_token %}
         {{ form.as_p }}
+				<!-- <input type="text" name="title" value="About Apple" required="" id="id_title" maxlength="200" class="form-control">
+				<br>
+				<textarea name="text" cols="40" required="" rows="10" id="id_text" class="form-control"></textarea> -->
 	    {{ formset.management_form }}
         {% for f in formset %}
         	{{ f.as_p }}
         {% endfor %}
-        <button class="btn" type="submit"><span class="abc">Save</span></button>
+        <button class="btn" type="submit"><span class="pqr">Save</span></button>
     </form>
 {% endblock %}
