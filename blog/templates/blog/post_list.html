@@ -1,6 +1,56 @@
 {% extends 'blog/base.html' %}
 
+
+
 {% block content %}
+<script>
+
+function add_to_fav(post_id){
+		$.ajax({
+				// url: "/artists/artist/add-or-remove-favorite/",
+				url: "{% url "fav" %}",
+				type: "POST",
+				data: {
+						'csrfmiddlewaretoken': '{{ csrf_token }}',
+						'id' : post_id,
+						'action': "create_favorite"
+				},
+				success: function(response){
+						response = JSON.parse(response);
+						if (response.status){
+								$("#blank"+response.id).hide();
+								$("#red"+response.id).show();
+								// $("#heart_outline_icon"+response.id).hide();
+								// $("#heart_filled_icon"+response.id).css("display","initial");
+						}
+
+				}
+		});
+		return false;
+}
+
+function remove_from_fav(post_id){
+	$.ajax({
+      url: "{% url "fav" %}",
+      type: "POST",
+      data: {
+          'csrfmiddlewaretoken': '{{ csrf_token }}',
+          'id' : post_id,
+          'action': "remove_favorite"
+      },
+      success: function(response){
+          response = JSON.parse(response);
+          if (response.status){
+              $("#red"+response.id).hide();
+              $("#blank"+response.id).show();
+              // $("#heart_filled_icon"+response.id).hide();
+          }
+      }
+  });
+  return false;
+}
+
+</script>
   {% for post in posts %}
     <div class="post">
 
@@ -11,10 +61,20 @@
         {% endfor %}
       </ul>
       {% endif %}
-      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
 			<div class="date" style="float: right;">
-        <p>published: {{ post.published_date }}</p>
-      </div>
+				<p>published: {{ post.published_date }}</p>
+			</div>
+      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+			{% if post in pro_obj.fav_post.all %}
+			<img src="static/css/images/heart.png" onclick="remove_from_fav({{post.id}})" style="float: right; width: 21px;height: 21px;" id="red{{post.id}}">
+			<img src="static/css/images/heart-outline.svg" onclick="add_to_fav({{post.id}})" style="float: right; width: 25px;height: 20px; display: none;" id="blank{{post.id}}">
+
+			{% else %}
+
+			<img src="static/css/images/heart-outline.svg" onclick="add_to_fav({{post.id}})" style="float: right; width: 25px;height: 20px;" id="blank{{post.id}}">
+			<img src="static/css/images/heart.png" onclick="remove_from_fav({{post.id}})" style="float: right; width: 21px;height: 21px;  display: none;" id="red{{post.id}}">
+			{% endif %}
+
 			<p> {{ post.text|slice:":120"}}....</p>
       <hr>
     </div>

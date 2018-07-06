@@ -11,5 +11,7 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/del/$', views.post_del, name='post_del'),
     url(r'^register/$', account_view.register, name='register'),
     url(r'^edit_profile/$', profile_view.edit_profile, name='edit_profile'),
+	url(r'^fav/$', views.add_or_remove_favorite, name='fav'),
+
 
 ]
