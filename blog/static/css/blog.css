@@ -94,17 +94,13 @@ body{
 @media (min-width: 768px)
 {
 	.form-inline .form-group {
-		display: inline-flex;
 		margin-bottom: 14px;
-		vertical-align: middle;
 		width: auto;
 	}
 }
 @media (max-width: 768px)
 {
 .form-group {
-		display: inline-flex;
 		width: 100%;
-		vertical-align: middle;
 	}
 }
